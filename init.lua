@@ -526,7 +526,7 @@ require('lazy').setup({
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
-        ts_ls = {},
+        -- ts_ls = {},
         eslint = {},
         rust_analyzer = {},
         --
@@ -564,9 +564,7 @@ require('lazy').setup({
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
-        ensure_installed = {
-          'ts_ls',
-        },
+        ensure_installed = {},
         automatic_installation = true,
         handlers = {
           function(server_name)
@@ -866,6 +864,12 @@ require('lazy').setup({
     'nvim-telescope/telescope-file-browser.nvim',
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
   },]]
+
+  {
+    'pmizio/typescript-tools.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+    opts = {},
+  },
   --
 
   -- File explorer
