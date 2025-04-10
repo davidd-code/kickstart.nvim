@@ -247,23 +247,17 @@ require('lazy').setup({
       require('which-key').setup()
 
       -- Document existing key chains
-      require('which-key').add {
-
-        { '<leader>c', group = '[C]ode' },
-        { '<leader>c_', hidden = true },
-        { '<leader>h', group = 'Git [H]unk' },
-        { '<leader>h_', hidden = true },
-        { '<leader>r', group = '[R]ename' },
-        { '<leader>r_', hidden = true },
-        { '<leader>t', group = '[T]oggle' },
-        { '<leader>t_', hidden = true },
-        { '<leader>w', group = '[W]orkspace' },
-        { '<leader>w_', hidden = true },
-      }
+      require('which-key').register({
+        ['<leader>c'] = { name = '[C]ode' },
+        ['<leader>h'] = { name = 'Git [H]unk' },
+        ['<leader>r'] = { name = '[R]ename' },
+        ['<leader>t'] = { name = '[T]oggle' },
+        ['<leader>w'] = { name = '[W]orkspace' },
+      }, { mode = 'n' }) -- optional, normal mode
       -- visual mode
-      require('which-key').add({
-        { '<leader>h_', hidden = true },
-      }, { mode = 'v' })
+      -- require('which-key').register({
+      --   ['<leader>h'] = { name = '[H]idden', hidden = true },
+      -- }, { mode = 'v' })
     end,
   },
 
